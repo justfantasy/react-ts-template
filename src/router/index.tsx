@@ -6,9 +6,10 @@ const modules: Record<string, { default: RouteObject[] }> = import.meta.glob(
   './modules/*.tsx',
   { eager: true },
 );
-const routes = Object.values(modules).reduce((acc, module) => {
-  return [...acc, ...module.default];
-}, [] as RouteObject[]);
+const routes = Object.values(modules).reduce(
+  (acc, module) => [...acc, ...module.default],
+  [] as RouteObject[],
+);
 
 const router = createBrowserRouter([
   {
