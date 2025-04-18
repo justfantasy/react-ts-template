@@ -8,4 +8,13 @@ export default defineConfig({
   resolve: {
     alias: [{ find: '@', replacement: '/src' }],
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.github.com', // 目标服务
+        rewrite: (path) => path.replace(/^\/api/, ''),
+        changeOrigin: true,
+      },
+    },
+  },
 });

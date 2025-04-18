@@ -4,7 +4,7 @@ import { useCounterStore } from '@/store';
 
 import styles from './index.module.scss';
 
-function Index() {
+export default function Index() {
   const { id } = useParams();
   const count = useCounterStore((state) => state.count);
   const increment = useCounterStore((state) => state.increment);
@@ -17,5 +17,3 @@ function Index() {
     </>
   );
 }
-
-export default Index;
